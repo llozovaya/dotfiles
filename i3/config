@@ -22,14 +22,14 @@ workspace_layout tabbed
 #new_container stack-limit rows 3
 
 # container mode switching
-bindcode 180 layout default
-bindsym XF86Search layout stacking
-bindcode 163 layout tabbed
+bindsym Print      layout default
+bindsym Scroll_Lock layout stacking
+bindsym Pause      layout tabbed
 
 # changing orientation
-bindsym XF86AudioRaiseVolume split h
-bindsym XF86AudioLowerVolume split v
-bindsym XF86AudioPlay floating toggle
+bindsym $mod+backslash  split h
+bindsym $mod+minus      split v
+bindsym $mod+equal      floating toggle
 
 # changing workspaces with F1-F9
 bindsym F1 workspace 1
@@ -55,36 +55,35 @@ bindsym Shift+F9 move workspace 9
 
 # move focus with wasd
 bindsym $mod+space focus parent
-bindsym $mod+o focus left
-bindsym $mod+e focus down
-bindsym $mod+period focus up
-bindsym $mod+u focus right
+bindsym $mod+s focus left
+bindsym $mod+d focus down
+bindsym $mod+e focus up
+bindsym $mod+f focus right
 
 # move client with WASD
-bindsym Shift+$mod+o move left
-bindsym Shift+$mod+e move down
-bindsym Shift+$mod+period move up
-bindsym Shift+$mod+u move right
+bindsym Control+$mod+s move left
+bindsym Control+$mod+d move down
+bindsym Control+$mod+e move up
+bindsym Control+$mod+f move right
 
 # resize clients using WASD for growth and wasd for reduce
 mode "resize" {
 # These bindings trigger as soon as you enter the resize mode
 
 # They resize the border in the direction you pressed, e.g.
-# when pressing left, the window is resized so that it has
 # more space on its left
 
-  bindsym o resize shrink left 10 px
-  bindsym Shift+o resize grow left 10 px
+  bindsym s resize shrink left 10 px
+  bindsym Shift+s resize grow left 10 px
 
-  bindsym e resize grow down 10 px
-  bindsym Shift+e resize shrink down 10 px
+  bindsym d resize grow down 10 px
+  bindsym Shift+d resize shrink down 10 px
 
-  bindsym period resize shrink up 10 px
-  bindsym Shift+period resize grow up 10 px
+  bindsym e resize shrink up 10 px
+  bindsym Shift+e resize grow up 10 px
 
-  bindsym u resize grow right 10 px
-  bindsym Shift+u resize shrink right 10 px
+  bindsym f resize grow right 10 px
+  bindsym Shift+f resize shrink right 10 px
 
   bindsym Control+g mode "default"
 }
@@ -97,8 +96,8 @@ floating_modifier Mod1
 # fullscreen with z
 bindsym $mod+z fullscreen
 
-# kill window with t
-bindsym $mod+t kill
+# kill window with k
+bindsym $mod+k kill
 
 # exit etc
 bindsym $mod+Delete reload
@@ -107,12 +106,6 @@ bindsym $mod+Next exit
 
 bindsym F12 exec gmrun
 
-for_window [class="Plasma"] floating enable
-floating_minimum_size -1 x -1
-floating_maximum_size -1 x -1
-
-
-# XXX: Automatically added a bar configuration
 bar {
-    status_command i3status
+	status_command i3status
 }

@@ -2,10 +2,10 @@
 ! Swap Caps_Lock and Control_L
 ! Set ISO_Next_Group to Control_L
 ! 
-remove Lock = Caps_Lock
-keysym Caps_Lock = Control_L
-add Control = Control_L
-keysym Control_L = ISO_Next_Group
+! remove Lock = Caps_Lock
+! keysym Caps_Lock = Control_L
+! add Control = Control_L
+! keysym Control_L = ISO_Next_Group
 
 
 !
@@ -15,8 +15,10 @@ remove Shift = Shift_R
 keysym Shift_R = Hyper_R
 add Mod3 = Hyper_R
 
+remove Lock = Scroll_Lock
+
 ! I use back as backspace
-keysym XF86Back = BackSpace
+! keysym XF86Back = BackSpace
 
 ! Bind multikey to Menu
 !keycode 135 = Multi_key
