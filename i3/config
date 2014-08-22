@@ -107,5 +107,11 @@ bindsym $mod+Next exit
 bindsym F12 exec gmrun
 
 bar {
-	status_command i3status
+	status_command i3status --config /etc/i3status-small.conf
+
 }
+bindsym $mod+l exec xscreensaver-command -lock
+
+assign [class="Vacuum"] 2
+exec xxkhh
+exec --no-startup-id i3-msg 'exec firefox; workspace 2; exec thunderbird; exec vacuum; workspace 1'

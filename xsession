@@ -10,18 +10,6 @@ xmodmap ~/.Xmodmap
 # иксскринсейвер
 xscreensaver -no-splash &
 
-# перечитать конфигурацию икс-сервера
-xrdb ~/.Xdefaults
-
-# раскладка
-setxkbmap us,ru ,typewriter grp:caps_toggle,compose:menu,grp_led:caps
-
-# модмап
-xmodmap ~/.Xmodmap
-
-# иксскринсейвер
-xscreensaver -no-splash &
-
 # манагер буфера обмена
 parcellite &
 
