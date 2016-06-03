@@ -1,0 +1,13 @@
+[alias]
+        co = checkout
+        ci = commit
+    st = status --untracked-files=no
+        br = branch
+        hist = log --pretty=format:\"%h %ad | %s%d [%an]\" --graph --date=short
+        type = cat-file -t
+        dump = cat-file -p
+    l = log --pretty=format:\"%h %ad | %s%Cgreen%d%Creset [%an]\" --graph --date=short  
+    p = pull --ff-only
+    amend = commit --amend --no-edit
+    f = fetch --all --recurse-submodules
+    d = diff --cached
