@@ -1,278 +1,146 @@
-set nocompatible
+colorscheme zenburn
+set relativenumber
+let g:CtrlSpaceDefaultMappingKey = "<leader>s"
 
-" Vundle {
-filetype on
-filetype off
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
-Bundle 'gmarik/vundle'
+    syntax on                   " Syntax highlighting
+    set mouse=a                 " Automatically enable mouse usage
+    set mousehide               " Hide the mouse cursor while typing
+    scriptencoding utf-8
 
+    set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+    set virtualedit=onemore             " Allow for cursor beyond last character
+    set history=1000                    " Store a ton of history (default is 20)
+    set hidden                          " Allow buffer switching without saving
 
-" General {
-Bundle 'mgutz/gosu-colors'
-Bundle 'two2tango'
-Bundle 'mbbill/undotree'
-Bundle 'maxbrunsfeld/vim-yankstack'
-Bundle 'bkad/CamelCaseMotion'
-Bundle 'tpope/vim-surround'
-Bundle 'myusuf3/numbers.vim'
-Bundle 'paradigm/SkyBison'
-Bundle 'scrooloose/nerdcommenter'
-Bundle 'szw/vim-ctrlspace'
-Bundle 'tommcdo/vim-exchange'
-"Bundle 'itchyny/lightline.vim'
-Bundle 'repmo.vim'
-Bundle 'majutsushi/tagbar'
-Bundle 'scrooloose/syntastic'
+    set iskeyword-=.                    " '.' is an end of word designator
+    set iskeyword-=#                    " '#' is an end of word designator
+    set iskeyword-=-                    " '-' is an end of word designator
 
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'sirver/ultisnips'
-Bundle 'honza/vim-snippets'
+    set nowrap                      " Do not wrap long lines
+    set autoindent                  " Indent at the same level of the previous line
+    set shiftwidth=4                " Use indents of 4 spaces
+    set expandtab                   " Tabs are spaces, not tabs
+    set tabstop=4                   " An indentation every four columns
+    set softtabstop=4               " Let backspace delete indent
 
-Bundle 'lyuts/vim-rtags'
+    set splitright                  " Puts new vsplit windows to the right of the current
+    set splitbelow                  " Puts new split windows to the bottom of the current
 
-"Bundle 'Shougo/neocomplete.vim'
-"Bundle 'Shougo/neosnippet.vim'
-"Bundle 'Shougo/neosnippet-snippets'
-" }
-
-" C {
-"Bundle 'justmao945/vim-clang'
-" }
+    set wildmenu                    " Show list instead of just completing
+    set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 
 
-" Go {
-"Bundle 'jnwhiteh/vim-golang'
-"Bundle 'Blackrush/vim-gocode'
-Bundle 'fatih/vim-go'
-" }
+    set noswapfile
+    set hlsearch                    " Highlight search terms
+    set ignorecase                  " Case insensitive search
+    set smartcase                   " Case sensitive when uc present
 
-" HTML {
-Bundle 'mattn/emmet-vim'
-" }
+    set backup                  " Backups are nice ...
+    set undofile                " So is persistent undo ...
+    set undolevels=1000         " Maximum number of changes that can be undone
+    set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
 
-" Misc {
-Bundle 'DrawIt'
-" }
+    set cursorline                  " Highlight current line
 
-" }
+    set number                      " Line numbers on
 
+    " Workaround vim-commentary for Haskell
+    autocmd FileType haskell setlocal commentstring=--\ %s
+    autocmd FileType cabal setlocal shiftwidth=2 softtabstop=2 tabstop=2
+	let mapleader = ','
+    let maplocalleader = '_'
 
-" General {
+        map <C-J> <C-W>j
+        map <C-K> <C-W>k
+        map <C-L> <C-W>l
+        map <C-H> <C-W>h
+        map <S-H> gT
+        map <S-L> gt
 
-let mapleader = ','
+        nnoremap <silent> + :exe "resize " . (winheight(0) * 3/2)<CR>
+        nnoremap <silent> - :exe "resize " . (winheight(0) * 2/3)<CR>
 
-filetype plugin indent on
-syntax on
+        nnoremap <C-=>:exe "resize " . (winwidth(0) * 3/2)<CR>
+        nnoremap <C-->:exe "resize " . (winwidth(0) * 2/3)<CR>
 
-set guioptions=m
-colorscheme two2tango
-set guifont="Consolas"
+        set clipboard+=unnamed
 
-set mouse=a                 " Automatically enable mouse usage
-set mousehide               " Hide the mouse cursor while typing
+" Enter mapping
 
-set showcmd
+        noremap <CR> o<ESC>
+        noremap  O<ESC>
 
-set directory=$HOME/.swap
-set undodir=$HOME/.undos
-set undofile
+        nnoremap Y y$
 
-
-
-set tabstop=4
-set shiftwidth=4
-
-if has ('x') && has ('gui') " On Linux use + register for copy-paste
-    set clipboard=unnamedplus
-elseif has ('gui')          " On mac and Windows, use * register for copy-paste
-    set clipboard=unnamed
-endif
-
-" delete trailing whitespaces
+" удаление вайтспейсов
 autocmd BufWritePre * :%s/\s\+$//e
 
+call plug#begin('~/.vim/plugged')
 
-" обновление файла по C-s
-nmap <c-s> :update<CR>
-imap <c-s> <Esc><c-s>a
+    Plug 'vim-ctrlspace/vim-ctrlspace'
+    Plug 'scrooloose/nerdtree'
+    Plug 'tpope/vim-surround'
+    Plug 'tpope/vim-repeat'
+    Plug 'jiangmiao/auto-pairs'
+    Plug 'ctrlpvim/ctrlp.vim'
+    Plug 'tacahiroy/ctrlp-funky'
+    Plug 'tmhedberg/matchit'
+    Plug 'bling/vim-airline'
+    Plug 'bling/vim-bufferline'
+    Plug 'Lokaltog/vim-easymotion'
+    Plug 'jistr/vim-nerdtree-tabs'
+    Plug 'mbbill/undotree'
+    Plug 'nathanaelkane/vim-indent-guides'
+    Plug 'vim-scripts/restore_view.vim'
+    Plug 'mhinz/vim-signify'
+    " Plug 'tpope/vim-abolish.git'
+    Plug 'gcmt/wildfire.vim'
 
-set number
+    Plug 'scrooloose/syntastic'
+    Plug 'tpope/vim-fugitive'
+    Plug 'scrooloose/nerdcommenter'
+    Plug 'Valloric/YouCompleteMe'
 
-nmap S cc
+    Plug 'Shougo/neocomplete.vim'
+    Plug 'Shougo/vimproc.vim'
+    Plug 'eagletmt/neco-ghc'
+    Plug 'eagletmt/ghcmod-vim'
 
-" закрываем скобки
-inoremap {      {}<Left>
-inoremap {<Space>  {<Space><Space>}<Esc>hi
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
-
-" C-] закрывает скобки {
-" http://stackoverflow.com/questions/6080286/vim-magic-closing-bracket
-" Return a corresponding paren to be sent to the buffer
-function! CloseParen()
-    let parenpairs = {'(' : ')',
-                   \  '[' : ']',
-                   \  '{' : '}'}
-
-    let [m_lnum, m_col] = searchpairpos('[[({]', '', '[\])}]', 'nbW')
-
-    if (m_lnum != 0) && (m_col != 0)
-        let c = getline(m_lnum)[m_col - 1]
-        return parenpairs[c]
-    endif
-    return ''
-endfun
-
-imap <C-]> <C-r>=CloseParen()<CR>
-" }
-
-" ,; ставит ; в конце строки
-nmap <leader>; m`A;<Esc>``
+    Plug 'tommcdo/vim-exchange'
 
 
+call plug#end()
 
 
-" Backups {
-" TODO
-" }
+    " Fugitive {
+        if isdirectory(expand("~/.vim/bundle/vim-fugitive/"))
+            nnoremap <silent> <leader>gs :Gstatus<CR>
+            nnoremap <silent> <leader>gd :Gdiff<CR>
+            nnoremap <silent> <leader>gc :Gcommit<CR>
+            nnoremap <silent> <leader>gb :Gblame<CR>
+            nnoremap <silent> <leader>gl :Glog<CR>
+            nnoremap <silent> <leader>gp :Git push<CR>
+            nnoremap <silent> <leader>gr :Gread<CR>
+            nnoremap <silent> <leader>gw :Gwrite<CR>
+            nnoremap <silent> <leader>ge :Gedit<CR>
+            " Mnemonic _i_nteractive
+            nnoremap <silent> <leader>gi :Git add -p %<CR>
+            nnoremap <silent> <leader>gg :SignifyToggle<CR>
+        endif
+    "}
 
-" UI {
-set cursorline                  " Highlight current line
-set showmatch                   " Show matching brackets/parenthesis
-set incsearch ignorecase smartcase hlsearch
-set wildmenu wildmode=list:longest,full  " Show list instead of just completing
+" Haskell autocomlete
+    " autocmd FileType haskell nmap <buffer> <space>hi :<C-u>Unite -start-insert haskellimport<CR>
 
-set scroll=5
-set scrolloff=15
-" }
+    autocmd FileType haskell nmap <buffer> <leader>hc :<C-u>GhcModTypeClear<CR>
+    autocmd FileType haskell nmap <buffer> <leader>hi :<C-u>GhcModInfoPreview!<CR>
+    autocmd FileType haskell nmap <buffer> <leader>ht :<C-u>GhcModType!<CR>
+    autocmd FileType haskell nmap <buffer> <leader>hT :<C-u>GhcModTypeInsert!<CR>
 
+    let g:haskellmode_completion_ghc = 0
+    autocmd FileType haskell setlocal omnifunc=necoghc#omnifunc
 
-" }
-
-" lightline {
-"set laststatus=2
-"let g:lightline = {
-"            \ 'colorscheme': 'jellybeans',
-"            \ 'active': {
-"            \ 'left': [['mode'], ['filename'], ['myfunc']],
-"            \ 'component_function': {
-"            \ 'myfunc': 'MyFunc',
-"            \ },
-"            \ },
-"            \ }
-
-"\   'cs_info': 'ctrlspace#statusline_info_segment',
-"\   'cs_key_info': 'ctrlspace#statusline_key_info_segment',
-
-"\ 'right':	[['cs_info'], ['cs_key_info']],
-" }
+    let g:necoghc_enable_detailed_browse = 1
 
 
-" ctrlspace {
-set hidden
-let g:ctrlspace_default_mapping_key = '<leader>s'
-" }
 
-
-" YouCompleteMe {
-
-" }
-
-" ultisnips {
-let g:UltiSnipsExpandTrigger = '<C-b>'
-" }
-
-" neocomplete {
-"let g:neocomplete#enable_at_startup = 1
-"let g:neocomplete#max_list = 30
-"let g:neocomplete#disable_auto_complete = 1
-"let g:neocomplete#enable_smart_case = 1
-
-"inoremap	<expr><C-j>	neocomplete#start_manual_complete()
-"inoremap	<expr><C-h>	neocomplete#close_popup()
-"inoremap 	<expr><C-g>	neocomplete#undo_completion()
-" }
-
-" neosnippet {
-"let g:neosnippet#enable_preview = 1
-
-"imap <C-k>     <Plug>(neosnippet_expand)
-"imap <C-n>     <Plug>(neosnippet_jump)
-" }
-
-" tagbar {
-nmap <silent> <leader>t :TagbarOpenAutoClose<CR>
-" }
-
-" Uncrustify {
-" Restore cursor position, window position, and last search after running a
-" command.
-function! Preserve(command)
-  " Save the last search.
-  let search = @/
-
-  " Save the current cursor position.
-  let cursor_position = getpos('.')
-
-  " Save the current window position.
-  normal! H
-  let window_position = getpos('.')
-  call setpos('.', cursor_position)
-
-  " Execute the command.
-  execute a:command
-
-  " Restore the last search.
-  let @/ = search
-
-  " Restore the previous window position.
-  call setpos('.', window_position)
-  normal! zt
-
-  " Restore the previous cursor position.
-  call setpos('.', cursor_position)
-endfunction
-
-" Specify path to your Uncrustify configuration file.
-let g:uncrustify_cfg_file_path =
-    \ shellescape(fnamemodify('~/.uncrustify.cfg', ':p'))
-
-" Don't forget to add Uncrustify executable to $PATH (on Unix) or
-" %PATH% (on Windows) for this command to work.
-function! Uncrustify(language)
-  call Preserve(':silent %!uncrustify'
-      \ . ' -q '
-      \ . ' -l ' . a:language
-      \ . ' -c ' . g:uncrustify_cfg_file_path)
-endfunction
-" }
-
-
-" rtags {
-let g:rtagsUseDefaultMappings = 0
-" }
-
-" C {
-autocmd BufNewFile,BufRead *.h :set ft=c
-autocmd FileType c autocmd BufWritePre <buffer> :call Uncrustify('c')
-autocmd FileType c nmap <leader>ri :call rtags#SymbolInfo()<CR>
-autocmd FileType c nmap <leader>rd :call rtags#FindJumpTo()<CR>
-autocmd FileType c nmap <leader>rr :call rtags#FindRefs()<CR>
-autocmd FileType c nmap <leader>r/ :call rtags#FindSymbols(input('Find Symbol: '))<CR>
-autocmd FileType c nmap <leader>rR :call rtags#ReindexFile()<CR>
-
-" }
-
-" Go {
-autocmd FileType go setlocal noexpandtab
-autocmd FileType go compiler go
-
-let g:go_auto_type_info = 0
-
-nmap <leader>gr :GoRun<CR>
-
-
-" }
-"
