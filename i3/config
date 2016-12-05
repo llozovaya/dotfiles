@@ -14,6 +14,17 @@ new_window 1pixel
 # ipc
 ipc-socket ~/.i3/ipc.sock
 
+#
+workspace 1 output VGA-1
+workspace 2 output VGA-1
+workspace 3 output VGA-1
+workspace 4 output VGA-1
+workspace 5 output HDMI-1
+workspace 6 output HDMI-1
+workspace 7 output HDMI-1
+workspace 8 output HDMI-1
+workspace 9 output HDMI-1
+
 # use tabbed mode by default
 workspace_layout tabbed
 

@@ -17,4 +17,9 @@ xxkb&
 
 xset m 3 4
 
+xrandr --output VGA1 --left-of HDMI1
+
+xset b off
+
 exec i3
+
