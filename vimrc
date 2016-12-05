@@ -66,11 +66,23 @@ let g:CtrlSpaceDefaultMappingKey = "<leader>s"
         set clipboard+=unnamed
 
 " Enter mapping
+    nnoremap <CR> o<ESC>
+    "nnoremap ^M O<ESC>
 
-        noremap <CR> o<ESC>
-        noremap  O<ESC>
+    nnoremap Y y$
 
-        nnoremap Y y$
+" swap files
+
+set directory=$HOME/.swap
+
+" check if files have been changed
+
+set noautoread
+au BufEnter * checktime
+au CursorMoved * checktime
+au CursorMovedI * checktime
+au CursorHold * checktime
+au CursorHoldI * checktime
 
 " удаление вайтспейсов
 autocmd BufWritePre * :%s/\s\+$//e
