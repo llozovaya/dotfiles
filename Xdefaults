@@ -36,8 +36,10 @@ Rxvt.color13: #ad7fa8
 Rxvt.color14: Cyan
 Rxvt.color15: #eeeeec
 
-! Rxvt.font: -*-terminus-medium-r-normal--14-*-*-*-*-*-iso8859-5
+!Rxvt.font: [codeset=UTF-8]xft:Terminus:pixelsize=14
+!-*-terminus-medium-r-normal--14-*-*-*-*-*-iso10646-1, -*-fixed-medium-r-*-*-14-*-*-*-*-*-iso10646-1
 Rxvt.font: xft:Input Mono Condensed:style=Light:size=11
+Rxvt*utf8: 1
 Rxvt.scrollBar: false
 Rxvt.scrollTtyOutput: false
 Rxvt.scrollWithBuffer: false
@@ -48,5 +50,3 @@ Rxvt.jumpScroll: true
 Rxvt.skipScroll: true
 
 Xcursor.theme: whiteglass
-
-emacs.font: Consolas-9
