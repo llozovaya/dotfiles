@@ -30,7 +30,6 @@ let g:CtrlSpaceDefaultMappingKey = "<leader>s"
     set wildmode=list:longest,full  " Command <Tab> completion, list matches, then longest common part, then all.
 
 
-    set noswapfile
     set hlsearch                    " Highlight search terms
     set ignorecase                  " Case insensitive search
     set smartcase                   " Case sensitive when uc present
@@ -73,7 +72,9 @@ let g:CtrlSpaceDefaultMappingKey = "<leader>s"
 
 " swap files
 
-set directory=$HOME/.swap
+    set backupdir=$HOME/.swap
+    set noswapfile
+    set dir=$TEMP
 
 " check if files have been changed
 
