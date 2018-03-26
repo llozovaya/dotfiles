@@ -3,6 +3,8 @@ set relativenumber
 let g:CtrlSpaceDefaultMappingKey = "<leader>s"
 
     syntax on                   " Syntax highlighting
+    filetype on
+    filetype plugin indent on
     set mouse=a                 " Automatically enable mouse usage
     set mousehide               " Hide the mouse cursor while typing
     scriptencoding utf-8
@@ -120,6 +122,11 @@ call plug#begin('~/.vim/plugged')
     Plug 'eagletmt/ghcmod-vim'
 
     Plug 'tommcdo/vim-exchange'
+    Plug 'idris-hackers/idris-vim'
+
+    Plug 'tpope/vim-fireplace'
+    Plug 'tpope/vim-salve'
+    Plug 'tpope/vim-dispatch'
 
 
 call plug#end()
