@@ -11,7 +11,8 @@ xmodmap ~/.Xmodmap
 xscreensaver -no-splash &
 
 # манагер буфера обмена
-parcellite &
+#parcellite &
+glipper &
 
 xxkb&
 
