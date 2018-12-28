@@ -111,7 +111,7 @@ call plug#begin('~/.vim/plugged')
     " Plug 'tpope/vim-abolish.git'
     Plug 'gcmt/wildfire.vim'
 
-    Plug 'scrooloose/syntastic'
+    "Plug 'scrooloose/syntastic'
     Plug 'tpope/vim-fugitive'
     Plug 'scrooloose/nerdcommenter'
     Plug 'Valloric/YouCompleteMe'

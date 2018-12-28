@@ -1,4 +1,5 @@
 [user]
+
 	name = Elizaveta Lozovaya
 	email = lozovaya@bifit.com
 [core]
@@ -22,8 +23,5 @@
     update = submodule update --init --recursive
 [push]
 	default = simple
-[http]
-	proxy = http://lozovaya:271828SyZd@proxy.bifit.int:3128
-
 [merge]
         log = true

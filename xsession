@@ -12,13 +12,14 @@ xscreensaver -no-splash &
 
 # манагер буфера обмена
 #parcellite &
-glipper &
+#glipper &
 
 xxkb&
 
 xset m 3 4
 
-xrandr --output VGA1 --left-of HDMI1
+# laptop with monitor
+xrandr --output eDP1 --left-of HDMI1
 
 xset b off
 
