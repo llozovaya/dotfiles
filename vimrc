@@ -90,6 +90,9 @@ au CursorHoldI * checktime
 " удаление вайтспейсов
 autocmd BufWritePre * :%s/\s\+$//e
 
+nmap <localleader>ts i<C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR><Esc>
+imap <localleader>ts <C-R>=strftime("%Y-%m-%d %a %I:%M %p")<CR>
+
 call plug#begin('~/.vim/plugged')
 
     Plug 'vim-ctrlspace/vim-ctrlspace'
@@ -127,7 +130,14 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-fireplace'
     Plug 'tpope/vim-salve'
     Plug 'tpope/vim-dispatch'
-
+    Plug 'nvie/vim-flake8'
+    Plug 'jceb/vim-orgmode'
+    Plug 'tpope/vim-speeddating'
+    Plug 'mattn/calendar-vim'
+    Plug 'tommcdo/vim-lion'
+    Plug 'vim-scripts/utl.vim'
+    Plug 'majutsushi/tagbar'
+    Plug 'junegunn/vim-easy-align'
 
 call plug#end()
 
@@ -163,4 +173,6 @@ call plug#end()
     let g:necoghc_enable_detailed_browse = 1
 
 
-
+" easy-align
+    xmap ga <Plug>(EasyAlign)
+    nmap ga <Plug>(EasyAlign)
