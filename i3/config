@@ -34,7 +34,7 @@ workspace_layout tabbed
 #new_container stack-limit rows 3
 
 # container mode switching
-bindsym Print      layout default
+#bindsym Print      layout default
 bindsym Scroll_Lock layout stacking
 bindsym Pause      layout tabbed
 
@@ -128,5 +128,5 @@ bindsym $mod+l exec xscreensaver-command -lock
 
 assign [class="Vacuum"] 2
 exec xxkhh
-exec --no-startup-id i3-msg 'workspace 1; exec firefox; workspace 8; exec agent; workspace 1'
+exec --no-startup-id i3-msg 'workspace 1; exec firefox; workspace 9; exec myteam; exec Telegram; workspace 1'
 
